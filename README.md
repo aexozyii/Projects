@@ -5,5 +5,6 @@
 <!-- redirect function -->
 <!-- add game function -->
 
-<h1>Documentation Start<br></h1>
-<p>Placeholder</p>
+<h1>Documentation<br></h1>
+<p>- Started planning<br></p>
+<h3>Incremental website</h3>
