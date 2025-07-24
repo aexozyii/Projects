@@ -5,3 +5,5 @@
 <!-- redirect function -->
 <!-- add game function -->
 
+<h1>Documentation Start<br></h1>
+<p>Placeholder</p>
