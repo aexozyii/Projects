@@ -9,4 +9,3 @@
 <p>- Started planning<br></p>
 <h3>Incremental website<br></h3>
 <h6>Allows for browsing, searching & adding incremental games</h6>
-uugsdafhufysahudiafasbhdifuasydfvgtsdhsdjf
