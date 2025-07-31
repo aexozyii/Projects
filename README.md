@@ -9,4 +9,5 @@
 <p>- Started planning<br></p>
 <h3>Incremental website<br></h3>
 <h6>Allows for browsing, searching & adding incremental games</h6>
-![alt text](C:\Users\seeda\OneDrive\Documents\GitHub\projects\image.png)
+![first page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\image.png)
+![game page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\Screenshot 2025-07-31 184657.png)
