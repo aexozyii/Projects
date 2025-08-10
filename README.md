@@ -14,4 +14,4 @@
 
 ![game page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\image2.jpg)
 
-<br>Continued on Figma prototype, adding different colours (black and white), typography, a signup/login page and search function.<br?
+<br>Continued on Figma prototype, adding different colours (black and white), typography, a signup/login page and search function. <br>
