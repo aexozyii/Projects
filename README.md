@@ -9,7 +9,7 @@
 <p>- Started planning<br></p>
 <h3>Incremental website<br></h3>
 <h6>Allows for browsing, searching & adding incremental games</h6>
-![first page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\image.png)
-![game page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\Screenshot 2025-07-31 184657.png)
+![first page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\image.jpg)
+![game page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\Screenshot 2025-07-31 184657.jpg)
 
 <br>Continued on Figma prototype, adding different colours (black and white), typography, a signup/login page and search function.<br?
