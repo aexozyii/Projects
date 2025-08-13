@@ -30,9 +30,9 @@ Non-Functional Requirements: <br>
  Created 2 Algorithms-
 <br>
 1. Login Page<br>
-Test case - Valid login credentials
-Verify that the user can successfully log in with valid credentials.
-Preconditions: The user has created an account and has a valid username and password.
+Test case - Valid login credentials<br>
+Verify that the user can successfully log in with valid credentials.<br>
+Preconditions: The user has created an account and has a valid username and password.<br>
 Steps:
 1. Open the login page.
 2. Enter the valid username and password in the username field.
@@ -42,9 +42,9 @@ Expected Result: The user is successfully logged in and redirected to the homepa
 ![algorithm for Login Page](Images/loginalgorithm.jpg)<br>
 
 2. Search Function<br>
-Test Case- Search function
-Verify that the search bar returns relevant results for a valid search query.
-Preconditions: The search function is enabled and the search database includes relevant data.
+Test Case- Search function<br>
+Verify that the search bar returns relevant results for a valid search query.<br>
+Preconditions: The search function is enabled and the search database includes relevant data.<br>
 Steps:
 1. Open the search bar.
 2. Enter a valid search query (e.g. "incremental game").
