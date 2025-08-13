@@ -30,18 +30,27 @@ Non-Functional Requirements: <br>
  Created 2 Algorithms-
 <br>
 1. Login Page<br>
-Steps Taken:
-- user inputs login details
-- system checks for valid user credentials and outputs valid or invalid response e.g. login failed or successful login
-- if successful, load user information (game history, search history etc.)
-- after logout refresh page with base site settings
+Test case - Valid login credentials
+Verify that the user can successfully log in with valid credentials.
+Preconditions: The user has created an account and has a valid username and password.
+Steps:
+1. Open the login page.
+2. Enter the valid username and password in the username field.
+3. Click the login button.
+Expected Result: The user is successfully logged in and redirected to the homepage.
 
 ![algorithm for Login Page](Images/loginalgorithm.jpg)<br>
 
 2. Search Function<br>
-Steps Taken:<br>
-- click on search bar to show recently searched, recommended games
-- use user input to find games identical (or typo)to user input 
+Test Case- Search function
+Verify that the search bar returns relevant results for a valid search query.
+Preconditions: The search function is enabled and the search database includes relevant data.
+Steps:
+1. Open the search bar.
+2. Enter a valid search query (e.g. "incremental game").
+3. Click the search button or press Enter.
+Expected Result: The search results page displays a list of relevant incremental games, including titles, descriptions, and other relevant information.
+
 ![algorithm for Search Function](Images/searchalgorithm.jpg)<br>
 
 
