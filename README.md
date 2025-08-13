@@ -31,8 +31,8 @@ Non-Functional Requirements: <br>
 <br>
 1. Login Page<br>
 Steps Taken:
--
--
+- user inputs login details
+- system checks for valid user credentials and outputs valid or invalid response e.g. login failed or successful login
 -
 -
 
@@ -40,9 +40,8 @@ Steps Taken:
 
 2. Search Function<br>
 Steps Taken:<br>
--
--
--
+- click on search bar to show recently searched, recommended games
+- use user input to find games identical (or typo)to user input 
 -
 ![algorithm for Search Function](Images\searchalgorithm.jpg)<br>
 
