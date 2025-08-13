@@ -16,13 +16,15 @@ Functional Requirements: <br>
 Non-Functional Requirements: <br>
 
 
-![first page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\image.jpg)
+![first page prototype]("C:\Users\seeda\.vscode\Images\firstpage.jpg")
 
-![game page prototype](C:\Users\seeda\OneDrive\Documents\GitHub\projects\image2.jpg)
+![game page prototype]("C:\Users\seeda\.vscode\Images\secondpage.jpg")
 
 <br>Alternate Website Design<br>
 
 <br>Continued on Figma prototype, adding different colours (black and white), typography, a signup/login page and search function. <br>
+
+![loginpage]("C:\Users\seeda\.vscode\Images\loginpage.jpg")
 
  Designing Algorithms:<br>
  Created 2 Algorithms-
@@ -34,7 +36,7 @@ Steps Taken:
 -
 -
 
-![algorithm for Login Page]()<br>
+![algorithm for Login Page]("C:\Users\seeda\.vscode\Images\loginalgorithm.jpg")<br>
 
 2. Search Function<br>
 Steps Taken:<br>
@@ -42,6 +44,6 @@ Steps Taken:<br>
 -
 -
 -
-![algorithm for Search Function]()<br>
+![algorithm for Search Function]("C:\Users\seeda\.vscode\Images\searchalgorithm.jpg")<br>
 
 
