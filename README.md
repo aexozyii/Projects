@@ -33,8 +33,8 @@ Non-Functional Requirements: <br>
 Steps Taken:
 - user inputs login details
 - system checks for valid user credentials and outputs valid or invalid response e.g. login failed or successful login
--
--
+- if successful, load user information (game history, search history etc.)
+- after logout refresh page with base site settings
 
 ![algorithm for Login Page](Images/loginalgorithm.jpg)<br>
 
@@ -42,7 +42,6 @@ Steps Taken:
 Steps Taken:<br>
 - click on search bar to show recently searched, recommended games
 - use user input to find games identical (or typo)to user input 
--
 ![algorithm for Search Function](Images/searchalgorithm.jpg)<br>
 
 
