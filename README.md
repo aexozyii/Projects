@@ -34,13 +34,13 @@ Steps Taken:
 -
 -
 
-![algorithm for Login Page]()
+![algorithm for Login Page]()<br>
 2. Search Function<br>
 Steps Taken:
 -
 -
 -
 -
-![algorithm for Search Function]()
+![algorithm for Search Function]()<br>
 
 
