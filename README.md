@@ -35,8 +35,9 @@ Steps Taken:
 -
 
 ![algorithm for Login Page]()<br>
+
 2. Search Function<br>
-Steps Taken:
+Steps Taken:<br>
 -
 -
 -
