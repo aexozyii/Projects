@@ -10,8 +10,8 @@
 <h3>Incremental website<br></h3>
 <h6>Allows for browsing, searching & adding incremental games</h6><br>
 
-<h1>**Functional and Non-functional requirements**</h1><br>
- **Requirement**                                                  | **Type**       |<br>
+<h1><b>Functional and Non-functional requirements</b></h1><br>
+ <b>Requirement</b>                                               | <b>Type</b>    |<br>
  ---------------------------------------------------------------- | -------------- |<br>
  Users can browse a catalog of incremental games.                 | Functional     |<br>
  Users can search games by name, tags, or genre.                  | Functional     |<br>
