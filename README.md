@@ -34,13 +34,7 @@
  Auto-save game progress (local + cloud).                         | Non-Functional |<br>
  Backup and restore of database.                                  | Non-Functional |<br>
  Intuitive, simple interface with minimal clicks.                 | Non-Functional |<br>
- Encrypted connections via HTTPS.                                 | Non-Functional |<br>
  Passwords stored with hashing (e.g., bcrypt).                    | Non-Functional |<br>
- Protection against XSS, CSRF, SQL injection.                     | Non-Functional |<br>
- Content moderation for user input.                               | Non-Functional |<br>
- Modular codebase (easy to add new games).                        | Non-Functional |<br>
- Clear developer/admin documentation.                             | Non-Functional |<br>    
- Works on Chrome, Firefox, Safari, Edge.                          | Non-Functional |<br>
 <br>
 
 
