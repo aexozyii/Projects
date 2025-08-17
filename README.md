@@ -20,16 +20,12 @@
  Users can play games directly in the browser.                    | Functional     |<br>
  Users can switch to fullscreen mode.                             | Functional     |<br>
  Save progress locally for guests (local storage).                | Functional     |<br>
- Save progress in the cloud for logged-in users.                  | Functional     |<br>
+ Save progress in database for logged-in users.                   | Functional     |<br>
  Users can sign up, log in, and log out.                          | Functional     |<br>
  Profiles include saved games, favorites, play history.           | Functional     |<br>
  Users can rate and review games.                                 | Functional     |<br>
  Users can comment/discuss games.                                 | Functional     |<br>
  System can recommend games based on play history.                | Functional     |<br>
- Admins can add, edit, or remove games.                           | Functional     |<br>
- Admins can manage tags/genres.                                   | Functional     |<br>
- Admins can moderate user reviews and comments.                   | Functional     |<br>
- Admins have analytics dashboard (engagement, most played).       | Functional     |<br>
  Notifications for new games (optional).                          | Functional     |<br>
  Guest play supported without account.                            | Functional     |<br>
  Page load time under 3 seconds.                                  | Non-Functional |<br>
