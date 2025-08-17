@@ -10,10 +10,42 @@
 <h3>Incremental website<br></h3>
 <h6>Allows for browsing, searching & adding incremental games</h6><br>
 
-Functional Requirements: <br>
+<h1>**Functional and Non-functional requirements**</h1>
+ **Requirement**                                                  | **Type**       |
+ ---------------------------------------------------------------- | -------------- |
+ Users can browse a catalog of incremental games.                 | Functional     |
+ Users can search games by name, tags, or genre.                  | Functional     |
+ Users can filter games (e.g., sci-fi, idle, prestige mechanics). | Functional     |
+ Display trending, new, and most-played games.                    | Functional     |
+ Users can play games directly in the browser.                    | Functional     |
+ Users can switch to fullscreen mode.                             | Functional     |
+ Save progress locally for guests (local storage).                | Functional     |
+ Save progress in the cloud for logged-in users.                  | Functional     |
+ Users can sign up, log in, and log out.                          | Functional     |
+ Profiles include saved games, favorites, play history.           | Functional     |
+ Users can rate and review games.                                 | Functional     |
+ Users can comment/discuss games.                                 | Functional     |
+ System can recommend games based on play history.                | Functional     |
+ Admins can add, edit, or remove games.                           | Functional     |
+ Admins can manage tags/genres.                                   | Functional     |
+ Admins can moderate user reviews and comments.                   | Functional     |
+ Admins have analytics dashboard (engagement, most played).       | Functional     |
+ Notifications for new games (optional).                          | Functional     |
+ Guest play supported without account.                            | Functional     |
+ Page load time under 3 seconds.                                  | Non-Functional |
+ Games load within 5 seconds on average.                          | Non-Functional |
+ System supports multiple concurrent users.                       | Non-Functional |
+ Auto-save game progress (local + cloud).                         | Non-Functional |
+ Backup and restore of database.                                  | Non-Functional |
+ Intuitive, simple interface with minimal clicks.                 | Non-Functional |
+ Encrypted connections via HTTPS.                                 | Non-Functional |
+ Passwords stored with hashing (e.g., bcrypt).                    | Non-Functional |
+ Protection against XSS, CSRF, SQL injection.                     | Non-Functional |
+ Content moderation for user input.                               | Non-Functional |
+ Modular codebase (easy to add new games).                        | Non-Functional |
+ Clear developer/admin documentation.                             | Non-Functional |        
+ Works on Chrome, Firefox, Safari, Edge.                          | Non-Functional |
 
-
-Non-Functional Requirements: <br>
 
 
 ![first page prototype](Images/firstpage.jpg)
