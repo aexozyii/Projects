@@ -36,7 +36,7 @@
  Intuitive, simple interface with minimal clicks.                 | Non-Functional |<br>
  Passwords stored with hashing (e.g., bcrypt).                    | Non-Functional |<br>
 <br>
-
+<h1><b>Week 1: Website Design</b></h1><br>
 
 ![first page prototype](Images/firstpage.jpg)
 
