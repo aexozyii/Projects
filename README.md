@@ -13,6 +13,7 @@
 
 
 <h1><b>Week 1: Functional and Non-functional requirements</b></h1><br>
+the formatting didnt work :c
  <b>Requirement</b>                                               | <b>Type</b>    |<br>
  ---------------------------------------------------------------- | -------------- |<br>
  Users can browse a catalog of incremental games.                 | Functional     |<br>
