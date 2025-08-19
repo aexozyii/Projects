@@ -10,7 +10,9 @@
 <h3>Incremental website<br></h3>
 <h6>Allows for browsing, searching & adding incremental games</h6><br>
 
-<h1><b>Functional and Non-functional requirements</b></h1><br>
+
+
+<h1><b>Week 1: Functional and Non-functional requirements</b></h1><br>
  <b>Requirement</b>                                               | <b>Type</b>    |<br>
  ---------------------------------------------------------------- | -------------- |<br>
  Users can browse a catalog of incremental games.                 | Functional     |<br>
@@ -36,17 +38,19 @@
  Intuitive, simple interface with minimal clicks.                 | Non-Functional |<br>
  Passwords stored with hashing (e.g., bcrypt).                    | Non-Functional |<br>
 <br>
-<h1><b>Week 1: Website Design</b></h1><br>
+<h1><b>Week 2: Website Design</b></h1><br>
 
 ![first page prototype](Images/firstpage.jpg)
 
 ![game page prototype](Images/secondpage.jpg)
 
-<br>Alternate Website Design<br>
+<h1><b>Week 3: Alternate Website Design</b></h1><br>
 
 <br>Continued on Figma prototype, adding different colours (black and white), typography, a signup/login page and search function. <br>
 
 ![loginpage](Images/loginpage.jpg)
+
+<h1><b>Week 4: Website Algorithms</b></h1><br>
 
  Designing Algorithms:<br>
  Created 2 Algorithms-
