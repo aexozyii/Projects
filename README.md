@@ -79,4 +79,7 @@ Expected Result: The search results page displays a list of relevant incremental
 
 ![algorithm for Search Function](Images/searchalgorithm.jpg)<br>
 
+<h1><b>Week 5: SQL Setup</b></h1><br>
+
+went very smoothly. added license, database, etc.
 
