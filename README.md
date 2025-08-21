@@ -40,7 +40,7 @@
 <br></pre>
 <h1><b>Week 2: Website Design</b></h1><br>
 
-![first page prototype](Images/firstpage.jpg)~~
+![first page prototype](Images/firstpage.jpg)
 
 ![game page prototype](Images/secondpage.jpg)
 
