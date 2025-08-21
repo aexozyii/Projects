@@ -81,5 +81,5 @@ Expected Result: The search results page displays a list of relevant incremental
 
 <h1><b>Week 5: SQL Setup</b></h1><br>
 
-went very smoothly. added license, database, etc.
-
+links from dblogin to dbgames?
+dblogin usernaame > game history (game name), last login > game visit date
