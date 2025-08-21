@@ -13,8 +13,7 @@
 
 
 <h1><b>Week 1: Functional and Non-functional requirements</b></h1><br>
-the formatting didnt work :c<br>
- <b>Requirement</b>                                               | <b>Type</b>    |<br>
+<pre><b>Requirement</b>                                               | <b>Type</b>    |<br>
  ---------------------------------------------------------------- | -------------- |<br>
  Users can browse a catalog of incremental games.                 | Functional     |<br>
  Users can search games by name, tags, or genre.                  | Functional     |<br>
@@ -38,7 +37,7 @@ the formatting didnt work :c<br>
  Backup and restore of database.                                  | Non-Functional |<br>
  Intuitive, simple interface with minimal clicks.                 | Non-Functional |<br>
  Passwords stored with hashing (e.g., bcrypt).                    | Non-Functional |<br>
-<br>
+<br></pre>
 <h1><b>Week 2: Website Design</b></h1><br>
 
 ![first page prototype](Images/firstpage.jpg)~~
@@ -82,5 +81,5 @@ Expected Result: The search results page displays a list of relevant incremental
 
 <h1><b>Week 5: SQL Setup</b></h1><br>
 
-went very smoothly. added license, database, etc.
-
+links from dblogin to dbgames?
+dblogin usernaame > game history (game name), last login > game visit date
