@@ -13,7 +13,7 @@
 
 
 <h1><b>Week 1: Functional and Non-functional requirements</b></h1><br>
-<pre><b>Requirement</b>                                                       | <b>Type</b>    |<br>
+<pre><b>Requirement</b>                                                       | <b>Type</b>          |<br>
  ---------------------------------------------------------------- | -------------- |<br>
  Users can browse a catalog of incremental games.                 | Functional     |<br>
  Users can search games by name, tags, or genre.                  | Functional     |<br>
