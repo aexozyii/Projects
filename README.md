@@ -14,7 +14,7 @@
 
 <h1><b>Week 1: Functional and Non-functional requirements</b></h1><br>
 the formatting didnt work :c<br>
- <b>Requirement</b>                                               | <b>Type</b>    |<br>
+<h1><b>Requirement</b>                                               | <b>Type</b>    |<br>
  ---------------------------------------------------------------- | -------------- |<br>
  Users can browse a catalog of incremental games.                 | Functional     |<br>
  Users can search games by name, tags, or genre.                  | Functional     |<br>
@@ -38,7 +38,7 @@ the formatting didnt work :c<br>
  Backup and restore of database.                                  | Non-Functional |<br>
  Intuitive, simple interface with minimal clicks.                 | Non-Functional |<br>
  Passwords stored with hashing (e.g., bcrypt).                    | Non-Functional |<br>
-<br>
+</h1><br>
 <h1><b>Week 2: Website Design</b></h1><br>
 
 ![first page prototype](Images/firstpage.jpg)
