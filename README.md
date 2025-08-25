@@ -90,9 +90,10 @@ Expected Result: The search results page displays a list of relevant incremental
 3. Genres table > gameinformation<br>
    Display game genre (with link to other games of game genre) under game information.<br>
 4. Reviews table > gameinformation<br>
-   Display review data for specific game underneath gameinformation
-5. Sessions table > Login Data
-   Sessions table ensures the user can stay logged in if they close or refresh the browser using their ip address.
+   Display review data for specific game underneath gameinformation<br>
+5. Sessions table > Login Data<br>
+   Sessions table ensures the user can stay logged in if they close or refresh the browser using their ip address.<br>
 6. 
-   
+
+![sql queries](Images/sqlqueries.png)<br>
 
