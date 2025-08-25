@@ -81,5 +81,18 @@ Expected Result: The search results page displays a list of relevant incremental
 
 <h1><b>Week 5: SQL Setup</b></h1><br>
 
-links from dblogin to dbgames?
-dblogin usernaame > game history (game name), last login > game visit date
+<h3>Queries</h3><br>
+
+1. Logininformation to gameinformation<br>
+   dblogin usernaame > game history (game name), last login > game visit date<br>
+2. Favourites table > Login Data<br>
+   Use login data to add favourites to user data, displaying favourites in specific area.<br>
+3. Genres table > gameinformation<br>
+   Display game genre (with link to other games of game genre) under game information.<br>
+4. Reviews table > gameinformation<br>
+   Display review data for specific game underneath gameinformation
+5. Sessions table > Login Data
+   Sessions table ensures the user can stay logged in if they close or refresh the browser using their ip address.
+6. 
+   
+
