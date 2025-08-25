@@ -96,4 +96,4 @@ Expected Result: The search results page displays a list of relevant incremental
 6. 
 
 ![sql queries](Images/sqlqueries.png)<br>
-
+^shows most links between each table^
