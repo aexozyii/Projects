@@ -9,7 +9,15 @@
 
 <h3>Incremental website<br></h3>
 <h6>Allows for browsing, searching & adding incremental games</h6><br>
+Similarly to websites like Galaxy.click and Steam, I aim for my website to display the following:<br>
 
+- Search and filter games by genre, platform, and release date.<br>
+
+- Compare availability across different online stores and platforms.<br>
+
+- Read and share community reviews, ratings, and recommendations.<br>
+
+- Save and track favorite games for quick access.<br>
 
 
 <h1><b>Week 1: Functional and Non-functional requirements</b></h1><br>
@@ -93,7 +101,8 @@ Expected Result: The search results page displays a list of relevant incremental
    Display review data for specific game underneath gameinformation<br>
 5. Sessions table > Login Data<br>
    Sessions table ensures the user can stay logged in if they close or refresh the browser using their ip address.<br>
-6. 
+6. Stores table > gamelinks
+   Allows user to click on link to be redirect to a store where user can buy game (if game is paid).
 
 ![sql queries](Images/sqlqueries.png)<br>
 ^shows most links between each table^
