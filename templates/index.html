@@ -1,5 +1,6 @@
 {% extends 'layout.html' %} {% block content %}
 <div class="container">
+  {% for row in content %}
   <div class="card">
     <img
       class="card-image"
@@ -12,7 +13,6 @@
       ><button class="btn">Read More</button></a
     >
   </div>
-{% endfor %}
-
+  {% endfor %}
 </div>
 {% endblock %}
