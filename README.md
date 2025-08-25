@@ -13,7 +13,7 @@
 
 
 <h1><b>Week 1: Functional and Non-functional requirements</b></h1><br>
-<pre><b>Requirement</b>                                               | <b>Type</b>    |<br>
+<pre><b>Requirement</b>                                                       | <b>Type</b>           |<br>
  ---------------------------------------------------------------- | -------------- |<br>
  Users can browse a catalog of incremental games.                 | Functional     |<br>
  Users can search games by name, tags, or genre.                  | Functional     |<br>
@@ -40,7 +40,7 @@
 <br></pre>
 <h1><b>Week 2: Website Design</b></h1><br>
 
-![first page prototype](Images/firstpage.jpg)~~
+![first page prototype](Images/firstpage.jpg)
 
 ![game page prototype](Images/secondpage.jpg)
 
@@ -81,5 +81,18 @@ Expected Result: The search results page displays a list of relevant incremental
 
 <h1><b>Week 5: SQL Setup</b></h1><br>
 
-links from dblogin to dbgames?
-dblogin usernaame > game history (game name), last login > game visit date
+<h3>Queries</h3><br>
+
+1. Logininformation to gameinformation<br>
+   dblogin usernaame > game history (game name), last login > game visit date<br>
+2. Favourites table > Login Data<br>
+   Use login data to add favourites to user data, displaying favourites in specific area.<br>
+3. Genres table > gameinformation<br>
+   Display game genre (with link to other games of game genre) under game information.<br>
+4. Reviews table > gameinformation<br>
+   Display review data for specific game underneath gameinformation
+5. Sessions table > Login Data
+   Sessions table ensures the user can stay logged in if they close or refresh the browser using their ip address.
+6. 
+   
+
