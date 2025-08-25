@@ -101,7 +101,7 @@ Expected Result: The search results page displays a list of relevant incremental
    Display review data for specific game underneath gameinformation<br>
 5. Sessions table > Login Data<br>
    Sessions table ensures the user can stay logged in if they close or refresh the browser using their ip address.<br>
-6. Stores table > gamelinks
+6. Gamelinks table > Stores
    Allows user to click on link to be redirect to a store where user can buy game (if game is paid).
 
 ![sql queries](Images/sqlqueries.png)<br>
