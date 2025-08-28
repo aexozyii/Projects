@@ -15,6 +15,95 @@
 <div id="menu">
 </div>
   </div>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store</title>
+    <style>
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .game-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .game-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .game-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .game-price {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .game-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-details {
+            background-color: #3498db;
+            color: white;
+        }
+        .btn-play {
+            background-color: #2ecc71;
+            color: white;
+        }
+        .btn-cart {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .btn-like {
+            background-color: #9b59b6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Game Store</h1>
+    
+    <div class="game-container">
+        {% for game in games %}
+        <div class="game-card">
+            <img src="{{ game.image_url or 'https://via.placeholder.com/250x150' }}" alt="{{ game.name }}" class="game-image">
+            <div class="game-title">{{ game.name }}</div>
+            <div class="game-price">${{ "%.2f"|format(game.price) }}</div>
+            <p>{{ game.description[:100] }}{% if game.description|length > 100 %}...{% endif %}</p>
+            
+            <div class="game-buttons">
+                <a href="{{ url_for('details', game_id=game.game_id) }}" class="btn btn-details">Details</a>
+                <a href="{{ url_for('play_game', game_id=game.game_id) }}" class="btn btn-play">Play</a>
+                <a href="{{ url_for('add_to_cart', game_id=game.game_id) }}" class="btn btn-cart">Add to Cart</a>
+                <a href="{{ url_for('like_game', game_id=game.game_id) }}" class="btn btn-like">Like</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
   {% endfor %}
 </div>
 {% endblock %}

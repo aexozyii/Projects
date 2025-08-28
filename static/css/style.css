@@ -80,7 +80,7 @@ nav h1 {
 
 .card {
   display: flex;
-  align-items: center;
+  align-items: centre;
   flex-direction: column;
   width: 100%;
   max-width: 20rem;
