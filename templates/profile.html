@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Incrementals.io</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f0f2f5;
+      color: #000;
+    }
+
+    header {
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .search-bar form {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      font-size: 14px;
+      width: 150px;
+      transition: width 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      width: 220px;
+      border-color: #000;
+    }
+
+    .search-bar button {
+      padding: 6px 10px;
+      border: 1px solid #000;
+      border-left: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      font-size: 14px;
+    }
+
+    .profile-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: calc(100vh - 60px);
+      padding: 40px 20px;
+    }
+
+    .profile-container {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-container h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-container p {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .profile-container button.logout-btn {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: none;
+      background-color: #000;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .profile-container button.logout-btn:hover {
+      background-color: #444;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .tabs button {
+      padding: 8px 16px;
+      border: none;
+      background: #e0e0e0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .tabs button.active {
+      background: #000;
+      color: #fff;
+    }
+
+    .tab-content {
+      display: none;
+      text-align: left;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .game-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .game-list li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .game-list li:last-child {
+      border-bottom: none;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Incrementals.io</h1>
+  <div class="search-bar">
+    <form action="{{ url_for('games') }}" method="GET">
+      <input type="text" name="query" placeholder="Search games..." value="{{ query or '' }}">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      {% if 'user_id' in session %}
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+<section class="profile-section">
+  <div class="profile-container">
+    <h2>Welcome, {{ username }}!</h2> <a href="{{ url_for('logout') }}"><button class="logout-btn">Logout</button></a>
+    <p>Manage your games and favorites below:</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="last-visited">Last Visited Games</button>
+      <button class="tab-btn" data-tab="favorites">Favorites</button>
+    </div>
+
+    <div class="tab-content active" id="last-visited">
+      <ul class="game-list">
+        {% for game in last_visited %}
+        <li>{{ game.name }} - <a href="{{ url_for('play_game', game_id=game.id) }}">Play</a></li>
+        {% else %}
+        <li>No recently visited games.</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="tab-content" id="favorites">
+      <ul class="game-list">
+        {% for game in favorites %}
+        <li>{{ game.name }} - <a href="{{ url_for('play_game', game_id=game.id) }}">Play</a></li>
+        {% else %}
+        <li>No favorite games added yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

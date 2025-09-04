@@ -1,12 +1,134 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-{% block title %}Sign Up - Incrementals.io{% endblock %}
+    body {
+      background: #fff;
+      color: #000;
+    }
 
-{% block content %}
-<section class="auth-section">
-  <div class="auth-box">
+    /* Top Navigation */
+    header {
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    /* Sections */
+    .section {
+      width: 100%;
+      min-height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      background: linear-gradient(
+        to bottom,
+        #f6f6f6 0%,
+        #e9e9e9 45%,
+        #d4d4d4 100%
+      );
+      border-top: 2px solid #000;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85),
+                  inset 0 -1px 0 rgba(0,0,0,0.25);
+    }
+
+    .section:first-of-type {
+      border-top: none;
+    }
+
+    /* Welcome Section */
+    .welcome {
+      flex-direction: column;
+      text-align: center;
+      padding: 80px 20px;
+      font-weight: 400;
+    }
+
+    .welcome h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .welcome p {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .welcome button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .welcome a {
+      margin-left: 10px;
+      color: #000;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Incrementals.io</h1>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+      <li><a href="{{ url_for('login') }}">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="signup-section">
+  <div class="signup-container">
     <h2>Sign Up</h2>
-    <form method="POST" action="/signup">
+    <form method="POST" action="{{ url_for('signup') }}">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
@@ -22,11 +144,6 @@
         <input type="password" id="password" name="password" required>
       </div>
 
-      <div class="form-group">
-        <label for="confirm">Confirm Password</label>
-        <input type="password" id="confirm" name="confirm" required>
-      </div>
-
       <button type="submit">Create Account</button>
     </form>
     <p class="switch-text">
@@ -34,4 +151,50 @@
     </p>
   </div>
 </section>
-{% endblock %}
+
+<style>
+.signup-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  background: #f0f2f5;
+}
+.signup-container {
+  max-width: 400px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.signup-container input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.signup-container label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.signup-container button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+}
+
+.signup-container button:hover {
+  background-color: #000000;
+}
+
+</style>

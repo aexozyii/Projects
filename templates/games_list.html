@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f6f6f6;
+    }
+    header {
+      background: #fff;
+      padding: 15px 40px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+    }
+    .games-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .game-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .game-card:hover {
+      transform: translateY(-5px);
+    }
+    .game-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Incrementals.io</h1>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      {% if 'user_id' in session %}
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+<h2 style="text-align:center; margin: 1.5rem 0;">{{ title }}</h2>
+
+<div class="games-container">
+  {% for game in games %}
+    <a href="{{ url_for('game_detail', game_id=game['game_id']) }}" class="game-card">
+      <img src="{{ game['cover_image_url'] }}" alt="{{ game['title'] }}">
+      <h3>{{ game['title'] }}</h3>
+      <p>{{ game['description'][:120] }}...</p>
+      <small>
+        Release: {{ game['release_date'] }}<br>
+        Dev: {{ game['developer'] }} | Pub: {{ game['publisher'] }}
+      </small>
+    </a>
+  {% else %}
+    <p style="text-align:center;">No games found.</p>
+  {% endfor %}
+</div>
+
+</body>
+</html>
