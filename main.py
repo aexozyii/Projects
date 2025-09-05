@@ -8,9 +8,6 @@ app.secret_key = "abcdef"
 
 DATABASE = "Databases/tables.db"
 
-# -------------------------
-# Database helper functions
-# -------------------------
 def get_db_connection():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
@@ -25,25 +22,19 @@ def fetch_games(limit=None, order_by="release_date DESC"):
     conn.close()
     return games_list
 
-# -------------------------
-# Home Page
-# -------------------------
 @app.route("/")
 def home():
     recommended_games = fetch_games(limit=4)
     new_games = fetch_games(limit=4, order_by="release_date DESC")
-    trending_games = fetch_games(limit=4)  # you can change order_by later for trending
+    trending_games = fetch_games(limit=4)
     return render_template(
-        "partials/menu.html",  # your main homepage template
+        "partials/menu.html",
         recommended_games=recommended_games,
         new_games=new_games,
         trending_games=trending_games,
         session=session
     )
 
-# -------------------------
-# All Games / Category Pages
-# -------------------------
 @app.route("/games/recommended")
 def recommended_games():
     games = fetch_games()
@@ -59,9 +50,6 @@ def trending_games():
     games = fetch_games()
     return render_template("games_list.html", title="Trending Games", games=games)
 
-# -------------------------
-# Authentication
-# -------------------------
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -119,9 +107,6 @@ def profile():
         return redirect(url_for("login"))
     return render_template("profile.html", username=session["username"])
 
-# -------------------------
-# About Page
-# -------------------------
 @app.route("/explore")
 def about():
     return "<h1>About Page (coming soon)</h1>"
@@ -140,8 +125,5 @@ def game_detail(game_id):
         return "<h1>Game not found</h1>", 404
     return render_template("game_detail.html", game=game)
 
-# -------------------------
-# Run App
-# -------------------------
 if __name__ == "__main__":
     app.run(debug=True)
