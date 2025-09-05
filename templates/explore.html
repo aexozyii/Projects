@@ -141,7 +141,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .search-bar form {
+        .search-bar form {
       display: flex;
       align-items: center;
     }
@@ -177,51 +177,30 @@
 
 <header>
   <h1>Incrementals.io</h1>
+  <!-- Search Bar -->
   <div class="search-bar">
   <form action="{{ url_for('games') }}" method="GET">
     <input type="text" name="query" placeholder="Search games..." value="{{ query or '' }}">
     <button type="submit"><i class="fas fa-search"></i></button>
   </form>
   </div>
+
+  <!-- Navigation Links -->
   <nav>
     <ul>
       <li><a href="{{ url_for('home') }}">Home</a></li>
       {% if 'user_id' in session %}
-        <li><a href="{{ url_for('games') }}">Explore</a></li>
+        <li><a href="{{ url_for('explore') }}">Explore</a></li>
         <li><a href="{{ url_for('profile') }}">Profile</a></li>
         <li><a href="{{ url_for('logout') }}">Logout</a></li>
       {% else %}
-        <li><a href="{{ url_for('games') }}">Explore</a></li>
+        <li><a href="{{ url_for('explore') }}">Explore</a></li>
         <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
         <li><a href="{{ url_for('login') }}">Login</a></li>
       {% endif %}
     </ul>
   </nav>
 </header>
-
-<!-- Welcome -->
-<section class="section welcome" id="welcome">
-  {% if 'user_id' in session %}
-    <h2>Welcome, {{ session['username'] }}!</h2>
-    <p>Browse through all the youngest incremental games ever.</p>
-    <div class="auth-buttons">
-      <a href="games">
-        <button>Explore Games</button>
-      </a>
-    </div>
-  {% else %}
-    <h2>Welcome</h2>
-    <p>Browse through all the youngest incremental games ever. but sign up first</p>
-    <div class="auth-buttons">
-      <a href="{{ url_for('signup') }}">
-        <button>Sign Up</button>
-      </a>
-      <a href="{{ url_for('login') }}">
-        <button>Login</button>
-      </a>
-    </div>
-  {% endif %}
-</section>
 
 <!-- Games -->
 

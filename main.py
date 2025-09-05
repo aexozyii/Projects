@@ -26,7 +26,7 @@ def fetch_games(limit=None, order_by="release_date DESC"):
 def home():
     recommended_games = fetch_games(limit=4)
     new_games = fetch_games(limit=4, order_by="release_date DESC")
-    trending_games = fetch_games(limit=4)
+    trending_games = fetch_games(limit=4, order_by="views DESC")
     return render_template(
         "partials/menu.html",
         recommended_games=recommended_games,
@@ -108,9 +108,9 @@ def profile():
     return render_template("profile.html", username=session["username"])
 
 @app.route("/explore")
-def about():
-    return "<h1>About Page (coming soon)</h1>"
-
+def explore():
+    return render_template("explore.html", title="Explore")
+    
 @app.route("/games")
 def games():
     games = fetch_games()

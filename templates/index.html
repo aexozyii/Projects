@@ -82,6 +82,7 @@
 <div class="auth-buttons">
   {% if 'user_id' in session %}
     <p>Welcome, <strong>{{ session['username'] }}</strong>!</p>
+    <li><a href="{{ url_for('games') }}">Explore</a></li>
     <a href="{{ url_for('profile') }}">
       <button>Profile</button>
     </a>
@@ -89,6 +90,7 @@
       <button>Logout</button>
     </a>
   {% else %}
+    <li><a href="{{ url_for('games') }}">Explore</a></li>
     <a href="{{ url_for('signup') }}">
       <button>Sign Up</button>
     </a>
