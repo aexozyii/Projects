@@ -110,7 +110,7 @@ def profile():
 @app.route("/explore")
 def explore():
     return render_template("explore.html", title="Explore")
-    
+
 @app.route("/games")
 def games():
     games = fetch_games()
