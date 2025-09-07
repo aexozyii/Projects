@@ -13,14 +13,42 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-def fetch_games(limit=None, order_by="release_date DESC"):
+def fetch_games(query=None, genre_id=None, limit=None, order_by=None):
     conn = get_db_connection()
-    query = "SELECT * FROM games ORDER BY " + order_by
+    sql = """
+        SELECT g.*, GROUP_CONCAT(gen.name, ', ') as genres
+        FROM games g
+        LEFT JOIN game_genres gg ON g.game_id = gg.game_id
+        LEFT JOIN genres gen ON gg.genre_id = gen.genre_id
+    """
+    params = []
+    where_clauses = []
+    if query:
+        like_query = f"%{query}%"
+        where_clauses.append("(g.title LIKE ? OR g.description LIKE ? OR g.developer LIKE ? OR g.publisher LIKE ?)")
+        params.extend([like_query, like_query, like_query, like_query])
+    if genre_id:
+        where_clauses.append("gg.genre_id = ?")
+        params.append(genre_id)
+    if where_clauses:
+        sql += " WHERE " + " AND ".join(where_clauses)
+    sql += " GROUP BY g.game_id"
+    if order_by:
+        sql += f" ORDER BY {order_by}"
     if limit:
-        query += f" LIMIT {limit}"
-    games_list = conn.execute(query).fetchall()
+        sql += f" LIMIT {limit}"
+    games_list = conn.execute(sql, tuple(params)).fetchall()
     conn.close()
     return games_list
+
+
+@app.route("/games/genre/<int:genre_id>")
+def games_by_genre(genre_id):
+    games_list = fetch_games(genre_id=genre_id)
+    conn = get_db_connection()
+    genre = conn.execute("SELECT * FROM genres WHERE genre_id = ?", (genre_id,)).fetchone()
+    conn.close()
+    return render_template("partials/menu.html", games=games_list, genre_name=genre['name'])
 
 @app.route("/")
 def home():
@@ -37,8 +65,14 @@ def home():
 
 @app.route("/games/recommended")
 def recommended_games():
-    games = fetch_games()
-    return render_template("games_list.html", title="Recommended Games", games=games)
+    conn = get_db_connection()
+    games = conn.execute("SELECT * FROM games").fetchall()
+    conn.close()
+    return render_template(
+        "games_list.html",
+        recommended_games="Recommended Games",
+        games=games
+    )
 
 @app.route("/games/new")
 def new_games():
@@ -105,25 +139,96 @@ def profile():
     if "user_id" not in session:
         flash("Please login to view your profile.", "warning")
         return redirect(url_for("login"))
-    return render_template("profile.html", username=session["username"])
 
-@app.route("/explore")
-def explore():
-    return render_template("explore.html", title="Explore")
+    conn = get_db_connection()
+    favorites = conn.execute("""
+        SELECT g.game_id, g.title, g.cover_image_url
+        FROM favorites f
+        JOIN games g ON f.game_id = g.game_id
+        WHERE f.user_id = ?
+    """, (session["user_id"],)).fetchall()
+    last_visited = conn.execute("""
+        SELECT g.game_id, g.title, g.cover_image_url, lv.visited_at
+        FROM last_visited lv
+        JOIN games g ON lv.game_id = g.game_id
+        WHERE lv.user_id = ?
+        ORDER BY lv.visited_at DESC
+        LIMIT 5
+    """, (session["user_id"],)).fetchall()
+    conn.close()
+    return render_template(
+        "profile.html",
+        username=session["username"],
+        favorites=favorites,
+        last_visited=last_visited
+    )
+
+@app.route("/about")
+def about():
+    return render_template("about_page.html")
+
 
 @app.route("/games")
 def games():
-    games = fetch_games()
-    return render_template("games_list.html", title="All Games", games=games)
+    query = request.args.get("query")
+    if query == "":
+        query = None
+    games_list = fetch_games(query)
+    return render_template("games_list.html", title="Search Results", games=games_list, query=query)
 
 @app.route("/games/<int:game_id>")
 def game_detail(game_id):
     conn = get_db_connection()
     game = conn.execute("SELECT * FROM games WHERE game_id = ?", (game_id,)).fetchone()
-    conn.close()
     if not game:
+        conn.close()
         return "<h1>Game not found</h1>", 404
-    return render_template("game_detail.html", game=game)
+    genres = conn.execute("""
+        SELECT g.genre_id, g.name
+        FROM genres g
+        JOIN game_genres gg ON g.genre_id = gg.genre_id
+        WHERE gg.game_id = ?
+    """, (game_id,)).fetchall()
+    if "user_id" in session:
+        conn.execute("""
+            INSERT INTO last_visited (user_id, game_id, visited_at)
+            VALUES (?, ?, CURRENT_TIMESTAMP)
+        """, (session["user_id"], game_id))
+        conn.commit()
+    conn.close()
+    return render_template("game_detail.html", game=game, genres=genres)
+
+@app.route("/game/<int:game_id>/favorite", methods=["POST"])
+def toggle_favorite(game_id):
+    if "user_id" not in session:
+        flash("You must be logged in to favorite games.", "warning")
+        return redirect(url_for("login"))
+    user_id = session["user_id"]
+    conn = get_db_connection()
+    existing = conn.execute(
+        "SELECT * FROM favorites WHERE user_id = ? AND game_id = ?",
+        (user_id, game_id)
+    ).fetchone()
+    if existing:
+        conn.execute(
+            "DELETE FROM favorites WHERE user_id = ? AND game_id = ?",
+            (user_id, game_id)
+        )
+        flash("Removed from favorites.", "info")
+    else:
+        # Add to favorites
+        conn.execute(
+            "INSERT INTO favorites (user_id, game_id) VALUES (?, ?)",
+            (user_id, game_id)
+        )
+        flash("Added to favorites!", "success")
+    conn.commit()
+    conn.close()
+    return redirect(url_for("game_detail", game_id=game_id))
+
+conn = get_db_connection()
+genres = conn.execute("SELECT * FROM game_genres").fetchall()
+conn.close()
 
 if __name__ == "__main__":
     app.run(debug=True)

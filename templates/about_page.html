@@ -171,10 +171,25 @@
       border-radius: 0 4px 4px 0;
       font-size: 14px;
     }
+    
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height: 1.6;
+    }
+
   </style>
 </head>
-<body>
-
 <header>
   <h1>Incrementals.io</h1>
   <div class="search-bar">
@@ -200,91 +215,35 @@
     </ul>
   </nav>
 </header>
-
-<!-- Welcome -->
-<section class="section welcome" id="welcome">
-  {% if 'user_id' in session %}
-    <h2>Welcome, {{ session['username'] }}!</h2>
-    <p>Browse through all the youngest incremental games ever.</p>
-    <div class="auth-buttons">
-      <a href="games">
-        <button>Explore Games</button>
-      </a>
-    </div>
-  {% else %}
-    <h2>Welcome</h2>
-    <p>Browse through all the youngest incremental games ever. but sign up first</p>
-    <div class="auth-buttons">
-      <a href="{{ url_for('signup') }}">
-        <button>Sign Up</button>
-      </a>
-      <a href="{{ url_for('login') }}">
-        <button>Login</button>
-      </a>
-    </div>
-  {% endif %}
-</section>
-
-<!-- Games -->
-
-<h2>Recommended <a href="{{ url_for('recommended_games') }}" style="font-size:0.7em;">(View All)</a></h2>
-<section class="section games" id="recommended">
-  <div class="games-container">
-    {% for game in recommended_games[:4] %}
-      <a href="{{ url_for('game_detail', game_id=game['game_id']) }}" class="game-card">
-        <img src="{{ game['cover_image_url'] }}" alt="{{ game['title'] }} Cover">
-        <h3>{{ game['title'] }}</h3>
-        <p>{{ game['description'][:120] }}...</p>
-        <small>
-          Release: {{ game['release_date'] }}<br>
-          <p class="game-genres">{{ game['genres'] }}</p>
-          Dev: {{ game['developer'] }} | Pub: {{ game['publisher'] }}
-        </small>
-      </a>
-    {% else %}
-      <p>No recommended games available.</p>
-    {% endfor %}
+<body>
+  <div class="container">
+    <h1>About The Game Site</h1>
+    <p>Welcome to Incrementals.io! Here you can explore, search, and discover games across various genres, developers, and publishers. Our goal is to provide CPTCPTCPT with an easy-to-navigate platform to find their next favorite game.</p>
+    <p>Features of the website:</p>
+    <ul>
+      <li>Search games by title, description, developer, or publisher</li>
+      <li>Filter games by genre</li>
+      <li>View details for each game, including release date and cover image</li>
+      <li>Create an account, login, and save your favorite games</li>
+    </ul>
+    <p>I hope you don't enjoy your experience here!</p>
   </div>
-</section>
+</body>
+</html>
 
-<h2>New Releases <a href="{{ url_for('new_games') }}" style="font-size:0.7em;">(View All)</a></h2>
-<section class="section games" id="new-releases">
-  <div class="games-container">
-    {% for game in new_games[:4] %}
-      <a href="{{ url_for('game_detail', game_id=game['game_id']) }}" class="game-card">
-        <img src="{{ game['cover_image_url'] }}" alt="{{ game['title'] }} Cover">
-        <h3>{{ game['title'] }}</h3>
-        <p>{{ game['description'][:120] }}...</p>
-        <small>
-          Release: {{ game['release_date'] }}<br>
-          <p class="game-genres">{{ game['genres'] }}</p>
-          Dev: {{ game['developer'] }} | Pub: {{ game['publisher'] }}
-        </small>
-      </a>
-    {% else %}
-      <p>No new releases available.</p>
-    {% endfor %}
-  </div>
-</section>
 
-<h2>Trending <a href="{{ url_for('trending_games') }}" style="font-size:0.7em;">(View All)</a></h2>
-<section class="section games" id="trending">
-  <div class="games-container">
-    {% for game in trending_games[:4] %}
-      <a href="{{ url_for('game_detail', game_id=game['game_id']) }}" class="game-card">
-        <img src="{{ game['cover_image_url'] }}" alt="{{ game['title'] }} Cover">
-        <h3>{{ game['title'] }}</h3>
-        <p>{{ game['description'][:120] }}...</p>
-        <small>
-          Release: {{ game['release_date'] }}<br>
-          <p class="game-genres">{{ game['genres'] }}</p>
-          Dev: {{ game['developer'] }} | Pub: {{ game['publisher'] }}
-        </small>
-      </a>
-    {% else %}
-      <p>No trending games available.</p>
-    {% endfor %}
-  </div>
-</section>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+
+  </style>
+</head>
+<body>
 

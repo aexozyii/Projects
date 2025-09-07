@@ -141,6 +141,23 @@
       border-radius: 0 4px 4px 0;
       font-size: 14px;
     }
+
+    .genre-tag {
+      display: inline-block;
+      background: #eee;
+      color: #333;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      text-decoration: none;
+      margin-right: 4px;
+      transition: background 0.2s;
+    }
+
+  .genre-tag:hover {
+    background: #000;
+    color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -157,10 +174,12 @@
     <ul>
       <li><a href="{{ url_for('home') }}">Home</a></li>
       {% if 'user_id' in session %}
+        <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('games') }}">Explore</a></li>
         <li><a href="{{ url_for('profile') }}">Profile</a></li>
         <li><a href="{{ url_for('logout') }}">Logout</a></li>
       {% else %}
+        <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('games') }}">Explore</a></li>
         <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
         <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -172,14 +191,25 @@
 <div class="game-detail">
   <img src="{{ game['cover_image_url'] }}" alt="{{ game['title'] }}">
   <h2>{{ game['title'] }}</h2>
+  <p class="game-genres">{{ game['genres'] }}</p>
   <p><strong>Description:</strong> {{ game['description'] }}</p>
   <p><strong>Release Date:</strong> {{ game['release_date'] }}</p>
   <p><strong>Developer:</strong> {{ game['developer'] }}</p>
   <p><strong>Publisher:</strong> {{ game['publisher'] }}</p>
+  <p><strong>Genres:</strong>
+    {% if genres %}
+      {% for genre in genres %}
+        <a href="{{ url_for('games_by_genre', genre_id=genre['genre_id']) }}" class="genre-tag">{{ genre['name'] }}</a>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    {% else %}
+      No genres listed.
+    {% endif %}
+  </p>
 
-  <!-- Favorite Button -->
-<form>
-  {% if game['is_favorite'] %}
+
+
+<form action="{{ url_for('toggle_favorite', game_id=game['game_id']) }}" method="POST">
+  {% if is_favorite %}
     <button type="submit" class="favorite-btn">★ Remove from Favorites</button>
   {% else %}
     <button type="submit" class="favorite-btn">☆ Add to Favorites</button>
@@ -187,6 +217,7 @@
 </form>
   <a class="back-link" href="{{ url_for('home') }}">← Back to Homepage</a>
 </div>
+
 
 </body>
 </html>

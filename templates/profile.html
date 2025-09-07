@@ -140,33 +140,66 @@
     }
 
     .tabs button.active {
-      background: #000;
-      color: #fff;
-    }
+        background: #000;
+        color: #fff;
+      }
 
     .tab-content {
-      display: none;
-      text-align: left;
-    }
+        display: none;
+        text-align: left;
+      }
 
     .tab-content.active {
-      display: block;
-    }
+        display: block;
+      }
 
     .game-list {
-      list-style: none;
-      padding: 0;
-    }
+        list-style: none;
+        padding: 0;
+      }
 
     .game-list li {
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-    }
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
 
     .game-list li:last-child {
-      border-bottom: none;
-    }
+        border-bottom: none;
+      }
 
+    .games-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+      }
+
+    .game-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+      }
+
+    .game-card:hover {
+        transform: translateY(-5px);
+      }
+
+    .game-card img {
+        width: 100%;
+        border-radius: 6px;
+        margin-bottom: 0.5rem;
+        object-fit: cover;
+        max-height: 160px;
+      }
+
+    .game-card h3 {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+      }
   </style>
 </head>
 <body>
@@ -183,10 +216,12 @@
     <ul>
       <li><a href="{{ url_for('home') }}">Home</a></li>
       {% if 'user_id' in session %}
+        <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('games') }}">Explore</a></li>
         <li><a href="{{ url_for('profile') }}">Profile</a></li>
         <li><a href="{{ url_for('logout') }}">Logout</a></li>
       {% else %}
+        <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('games') }}">Explore</a></li>
         <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
         <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -199,44 +234,46 @@
   <div class="profile-container">
     <h2>Welcome, {{ username }}!</h2> <a href="{{ url_for('logout') }}"><button class="logout-btn">Logout</button></a>
     <p>Manage your games and favorites below:</p>
-
     <div class="tabs">
       <button class="tab-btn active" data-tab="last-visited">Last Visited Games</button>
       <button class="tab-btn" data-tab="favorites">Favorites</button>
     </div>
 
-    <div class="tab-content active" id="last-visited">
-      <ul class="game-list">
-        {% for game in last_visited %}
-        <li>{{ game.name }} - <a href="{{ url_for('play_game', game_id=game.id) }}">Play</a></li>
-        {% else %}
-        <li>No recently visited games.</li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <div class="tab-content" id="favorites">
-      <ul class="game-list">
-        {% for game in favorites %}
-        <li>{{ game.name }} - <a href="{{ url_for('play_game', game_id=game.id) }}">Play</a></li>
-        {% else %}
-        <li>No favorite games added yet.</li>
-        {% endfor %}
-      </ul>
-    </div>
-
+<div class="tab-content active" id="last-visited">
+  <div class="games-container">
+    {% for game in last_visited %}
+      <a href="{{ url_for('game_detail', game_id=game['game_id']) }}" class="game-card">
+        <img src="{{ game['cover_image_url'] }}" alt="{{ game['title'] }} Cover">
+        <h3>{{ game['title'] }}</h3>
+        <small>Visited: {{ game['visited_at'] }}</small>
+      </a>
+    {% else %}
+      <p>No recently visited games.</p>
+    {% endfor %}
   </div>
+</div>
+
+<div class="tab-content" id="favorites">
+  <div class="games-container">
+    {% for game in favorites %}
+      <a href="{{ url_for('game_detail', game_id=game['game_id']) }}" class="game-card">
+        <img src="{{ game['cover_image_url'] }}" alt="{{ game['title'] }} Cover">
+        <h3>{{ game['title'] }}</h3>
+      </a>
+    {% else %}
+      <p>No favorite games added yet.</p>
+    {% endfor %}
+  </div>
+</div>
 </section>
 
 <script>
   const tabs = document.querySelectorAll('.tab-btn');
   const contents = document.querySelectorAll('.tab-content');
-
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       contents.forEach(c => c.classList.remove('active'));
-
       tab.classList.add('active');
       document.getElementById(tab.dataset.tab).classList.add('active');
     });
