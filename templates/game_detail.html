@@ -205,9 +205,6 @@
       No genres listed.
     {% endif %}
   </p>
-
-
-
 <form action="{{ url_for('toggle_favorite', game_id=game['game_id']) }}" method="POST">
   {% if is_favorite %}
     <button type="submit" class="favorite-btn">★ Remove from Favorites</button>
@@ -217,7 +214,5 @@
 </form>
   <a class="back-link" href="{{ url_for('home') }}">← Back to Homepage</a>
 </div>
-
-
 </body>
 </html>
