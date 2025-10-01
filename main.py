@@ -172,7 +172,7 @@ def about():
 def games():
     query = request.args.get("query")
     if query == "":
-        query = None
+        query =""
     games_list = fetch_games(query)
     return render_template("games_list.html", title="Search Results", games=games_list, query=query)
 
