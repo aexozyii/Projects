@@ -379,3 +379,15 @@ button[type="submit"]:hover {
 .search-bar button i {
   pointer-events: none;
 }
+
+.comments-section {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+.comment {
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  border-left: 4px solid #ccc;
+}

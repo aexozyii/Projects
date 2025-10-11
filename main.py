@@ -13,6 +13,27 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+def add_comment(user_id, game_id, content):
+    conn = get_db_connection()
+    conn.execute(
+        "INSERT INTO comments (user_id, game_id, content) VALUES (?, ?, ?)",
+        (user_id, game_id, content)
+    )
+    conn.commit()
+    conn.close()
+
+def get_comments_for_game(game_id):
+    conn = get_db_connection()
+    comments = conn.execute("""
+        SELECT c.content, c.created_at, u.username
+        FROM comments c
+        JOIN users u ON c.user_id = u.user_id
+        WHERE c.game_id = ?
+        ORDER BY c.created_at DESC
+    """, (game_id,)).fetchall()
+    conn.close()
+    return comments
+
 def fetch_games(query=None, genre_id=None, limit=None, order_by=None):
     conn = get_db_connection()
     sql = """
@@ -48,7 +69,7 @@ def games_by_genre(genre_id):
     conn = get_db_connection()
     genre = conn.execute("SELECT * FROM genres WHERE genre_id = ?", (genre_id,)).fetchone()
     conn.close()
-    return render_template("partials/menu.html", games=games_list, genre_name=genre['name'])
+    return render_template("games_list.html", title=f"Genre: {genre['name']}", games=games_list)
 
 @app.route("/")
 def home():
@@ -139,7 +160,6 @@ def profile():
     if "user_id" not in session:
         flash("Please login to view your profile.", "warning")
         return redirect(url_for("login"))
-
     conn = get_db_connection()
     favorites = conn.execute("""
         SELECT g.game_id, g.title, g.cover_image_url
@@ -152,6 +172,7 @@ def profile():
         FROM last_visited lv
         JOIN games g ON lv.game_id = g.game_id
         WHERE lv.user_id = ?
+        GROUP BY g.game_id
         ORDER BY lv.visited_at DESC
         LIMIT 5
     """, (session["user_id"],)).fetchall()
@@ -167,7 +188,6 @@ def profile():
 def about():
     return render_template("about_page.html")
 
-
 @app.route("/games")
 def games():
     query = request.args.get("query")
@@ -176,7 +196,7 @@ def games():
     games_list = fetch_games(query)
     return render_template("games_list.html", title="Search Results", games=games_list, query=query)
 
-@app.route("/games/<int:game_id>")
+@app.route("/games/<int:game_id>", methods=["GET", "POST"])
 def game_detail(game_id):
     conn = get_db_connection()
     game = conn.execute("SELECT * FROM games WHERE game_id = ?", (game_id,)).fetchone()
@@ -189,14 +209,34 @@ def game_detail(game_id):
         JOIN game_genres gg ON g.genre_id = gg.genre_id
         WHERE gg.game_id = ?
     """, (game_id,)).fetchall()
+    is_favorite = False
     if "user_id" in session:
+        is_favorite = conn.execute("""
+            SELECT 1 FROM favorites WHERE user_id = ? AND game_id = ?
+        """, (session["user_id"], game_id)).fetchone() is not None
+        conn.execute("""
+            DELETE FROM last_visited WHERE user_id = ? AND game_id = ?
+        """, (session["user_id"], game_id))
         conn.execute("""
             INSERT INTO last_visited (user_id, game_id, visited_at)
             VALUES (?, ?, CURRENT_TIMESTAMP)
         """, (session["user_id"], game_id))
         conn.commit()
+        if request.method == "POST":
+            comment = request.form.get("comment")
+            if comment:
+                add_comment(session["user_id"], game_id, comment)
+                flash("Comment posted!", "success")
+                return redirect(url_for("game_detail", game_id=game_id))
+    comments = get_comments_for_game(game_id)
     conn.close()
-    return render_template("game_detail.html", game=game, genres=genres)
+    return render_template(
+        "game_detail.html",
+        game=game,
+        genres=genres,
+        is_favorite=is_favorite,
+        comments=comments
+    )
 
 @app.route("/game/<int:game_id>/favorite", methods=["POST"])
 def toggle_favorite(game_id):
