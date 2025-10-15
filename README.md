@@ -130,3 +130,10 @@ Multiple different interactive features have been added to the webapp, such as g
 Added a Comments section for users to write reviews on the games. 
 
 ![comments section](static/Images/commentssection.webp)<br>
+
+
+<h1>How to run webapp:>
+Open VSCode and open Terminal with Ctrl + `
+Run the following command: 
+python3 main.py
+The website should now be running on 127.0.0.1:5000
