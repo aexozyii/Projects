@@ -86,10 +86,8 @@ Expected Result: The search results page displays a list of relevant incremental
 
 ![algorithm for Search Function](static/Images/searchalgorithm.webp)<br>
 
-<h1><b>Week 5: SQL Setup</b></h1><br>
-
+<h1><b>Week 5 & 6: SQL Setup</b></h1><br>
 <h3>Queries</h3><br>
-
 1. Logininformation to gameinformation<br>
    dblogin usernaame > game history (game name), last login > game visit date<br>
 2. Favourites table > Login Data<br>
@@ -101,15 +99,12 @@ Expected Result: The search results page displays a list of relevant incremental
 5. Sessions table > Login Data<br>
    Sessions table ensures the user can stay logged in if they close or refresh the browser using their ip address.<br>
 6. Gamelinks table > Stores
-   Allows user to click on link to be redirect to a store where user can buy game (if game is paid).
+   Allows user to click on link to be redirect to a store where user can view or buy game (if game is paid).
 
 ![sql queries](static/Images/sqlqueries.webp)<br>
-^shows most links between each table^
+^shows all links between each table^
 
-
-<h1><b>Week 6:</b></h1><br>
-
-<h1><b>Week 7:</b></h1><br>
+<h1><b>Week 7 & 8: Website styling/development</b></h1><br>
 
 <h1><b>Week 8:</b></h1><br>
 
