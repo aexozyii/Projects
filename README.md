@@ -112,20 +112,21 @@ Followed through the provided template and creates a styles.css file to put prov
 
 Created a Home, Signup & login page. These all successfully link to their respective table databases.\
 
-![css code](static/Images/homepage.webp)<br>
+![home page](static/Images/homepage.webp)<br>
 ^image of homepage^
-![css code](static/Images/signuppage.webp)<br>
+![signup page](static/Images/signuppage.webp)<br>
 ^image of signup page^
-![css code](static/Images/webloginpage.webp)<br>
+![web login page](static/Images/webloginpage.webp)<br>
 ^image of login page^
 
+<h1><b>Week 9 & 10: Adding Interactivity</b></h1><br>
+Multiple different interactive features have been added to the webapp, such as game thumbnails, an about & explore section, a profile section with recently visited and favourited games, a search bar to search for games and a tag based filter for games.
 
-<h1><b>Week 8:</b></h1><br>
-
-<h1><b>Week 9:</b></h1><br>
-
-<h1><b>Week 10:</b></h1><br>
-
+![newer home](static/Images/newerhome.webp)<br>
+^the revised home page with all added features^
+![profile page](static/Images/profilepage.webp)<br>
+^profiles page with most recently visited and favourite games^
 <h1><b>Holidays:</b></h1><br>
+Added a Comments section for users to write reviews on the games. 
 
-<h1><b>Week 1:</b></h1><br>
+![comments section](static/Images/commentssection.webp)<br>
