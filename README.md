@@ -19,7 +19,6 @@ Similarly to websites like Galaxy.click and Steam, I aim for my website to displ
 
 - Save and track favorite games for quick access.<br>
 
-
 <h1><b>Week 1: Functional and Non-functional requirements</b></h1><br>
 <pre><b>Requirement</b>                                                       | <b>Type</b>           |<br>
  ---------------------------------------------------------------- | -------------- |<br>
@@ -48,15 +47,15 @@ Similarly to websites like Galaxy.click and Steam, I aim for my website to displ
 <br></pre>
 <h1><b>Week 2: Website Design</b></h1><br>
 
-![first page prototype](Images/firstpage.jpg)
+![first page prototype](static/Images/firstpage.jpg)
 
-![game page prototype](Images/secondpage.jpg)
+![game page prototype](static/Images/secondpage.jpg)
 
 <h1><b>Week 3: Alternate Website Design</b></h1><br>
 
 <br>Continued on Figma prototype, adding different colours (black and white), typography, a signup/login page and search function. <br>
 
-![loginpage](Images/loginpage.jpg)
+![loginpage](static/Images/loginpage.jpg)
 
 <h1><b>Week 4: Website Algorithms</b></h1><br>
 
@@ -73,7 +72,7 @@ Steps:
 3. Click the login button.
 Expected Result: The user is successfully logged in and redirected to the homepage.
 
-![algorithm for Login Page](Images/loginalgorithm.jpg)<br>
+![algorithm for Login Page](static/Images/loginalgorithm.jpg)<br>
 
 2. Search Function<br>
 Test Case- Search function<br>
@@ -85,7 +84,7 @@ Steps:
 3. Click the search button or press Enter.
 Expected Result: The search results page displays a list of relevant incremental games, including titles, descriptions, and other relevant information.
 
-![algorithm for Search Function](Images/searchalgorithm.jpg)<br>
+![algorithm for Search Function](static/Images/searchalgorithm.jpg)<br>
 
 <h1><b>Week 5: SQL Setup</b></h1><br>
 
@@ -104,5 +103,20 @@ Expected Result: The search results page displays a list of relevant incremental
 6. Gamelinks table > Stores
    Allows user to click on link to be redirect to a store where user can buy game (if game is paid).
 
-![sql queries](Images/sqlqueries.png)<br>
+![sql queries](static/Images/sqlqueries.png)<br>
 ^shows most links between each table^
+
+
+<h1><b>Week 6:</b></h1><br>
+
+<h1><b>Week 7:</b></h1><br>
+
+<h1><b>Week 8:</b></h1><br>
+
+<h1><b>Week 9:</b></h1><br>
+
+<h1><b>Week 10:</b></h1><br>
+
+<h1><b>Holidays:</b></h1><br>
+
+<h1><b>Week 1:</b></h1><br>
