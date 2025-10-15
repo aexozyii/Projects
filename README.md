@@ -132,8 +132,8 @@ Added a Comments section for users to write reviews on the games.
 ![comments section](static/Images/commentssection.webp)<br>
 
 
-<h1>How to run webapp:</h1>
-Open VSCode and open Terminal with Ctrl + `
-Run the following command: 
-python3 main.py
+<h1>How to run webapp:</h1><br>
+Open VSCode and open Terminal with Ctrl + `<br>
+Run the following command: <br>
+python3 main.py<br>
 The website should now be running on 127.0.0.1:5000
