@@ -89,7 +89,7 @@ Expected Result: The search results page displays a list of relevant incremental
 <h1><b>Week 5 & 6: SQL Setup</b></h1><br>
 <h3>Queries</h3><br>
 1. Logininformation to gameinformation<br>
-   dblogin usernaame > game history (game name), last login > game visit date<br>
+   dblogin username > game history (game name), last login > game visit date<br>
 2. Favourites table > Login Data<br>
    Use login data to add favourites to user data, displaying favourites in specific area.<br>
 3. Genres table > gameinformation<br>
@@ -105,6 +105,20 @@ Expected Result: The search results page displays a list of relevant incremental
 ^shows all links between each table^
 
 <h1><b>Week 7 & 8: Website styling/development</b></h1><br>
+<h3>Creating CSS & Html Files</h3><br>
+Followed through the provided template and creates a styles.css file to put provided styles in. Changed the code around a tiny bit to fit my planned Figma colour scheme.
+
+![css code](static/Images/csscode.webp)<br>
+
+Created a Home, Signup & login page. These all successfully link to their respective table databases.\
+
+![css code](static/Images/homepage.webp)<br>
+^image of homepage^
+![css code](static/Images/signuppage.webp)<br>
+^image of signup page^
+![css code](static/Images/webloginpage.webp)<br>
+^image of login page^
+
 
 <h1><b>Week 8:</b></h1><br>
 
