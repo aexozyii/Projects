@@ -133,7 +133,9 @@ Added a Comments section for users to write reviews on the games.
 
 
 <h1>How to run webapp:</h1>
-<h4>Open VSCode and open Terminal with Ctrl + `<br>
+<h4>Download the Repo and open with VSCode.<br>
+Open Terminal with Ctrl + `<br>
 Run the following command: <br>
 python3 main.py<br>
 The website should now be running on 127.0.0.1:5000</h4>
+
