@@ -139,3 +139,5 @@ Run the following command: <br>
 python3 main.py<br>
 The website should now be running on 127.0.0.1:5000</h4>
 
+<br><br>
+many thanks to copilot for helping me with some styling issues i had and showing me how to import werkzeug for hash :pray:
