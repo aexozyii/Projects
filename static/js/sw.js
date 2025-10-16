@@ -2,6 +2,7 @@ const assets = [
   "/",
   "static/css/style.css",
   "static/js/app.js",
+  "../templates/partials",
 ];
 
 const CATALOGUE_ASSETS = "catalogue-assets";
